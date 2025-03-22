@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You Membre</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5dc;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+
+        .envelope {
+            position: relative;
+            width: 250px;
+            height: 180px;
+            background: #c9a063;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: #b88b5a;
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .letter {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 120px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #4a3f35;
+            transition: top 0.5s ease-in-out;
+        }
+
+        .envelope.open .flap {
+            transform: rotateX(180deg);
+        }
+
+        .envelope.open .letter {
+            top: 20%;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Klik suratnya!</h2>
+    <div class="envelope" onclick="openEnvelope()">
+        <div class="flap"></div>
+        <div class="letter">Happy Eid All! 🌙✨</div>
+    </div>
+
+    <script>
+        function openEnvelope() {
+            document.querySelector('.envelope').classList.toggle('open');
+        }
+    </script>
+
+</body>
+</html>
